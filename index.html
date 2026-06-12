@@ -350,7 +350,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <a href="#vrh" class="nav-logo">Velvet Secret</a>
   <ul class="nav-links">
     <li><a href="#zgodba" class="nav-link">Občutek</a></li>
-    <li><a href="#branje" class="nav-link">Branje</a></li>
+    <li><a href="#branje" class="nav-link">Branje iz kart</a></li>
     <li><a href="#cenik" class="nav-link">Cenik</a></li>
     <li><a href="#racun" class="nav-link">Račun</a></li>
     <li><button class="nav-login" onclick="openAuth()">Prijava</button></li>
@@ -359,7 +359,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 </nav>
 <div class="mobile" id="mobile">
   <a href="#zgodba" class="mobile-link">Občutek</a>
-  <a href="#branje" class="mobile-link">Branje</a>
+  <a href="#branje" class="mobile-link">Branje iz kart</a>
   <a href="#cenik" class="mobile-link">Cenik</a>
   <button onclick="openAuth();toggleMenu(false)">Prijava</button>
 </div>
@@ -377,10 +377,10 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <div class="hero-content">
     <div class="hero-title-block" style="opacity:0;transform:translateY(30px);animation:fadeSlideUp 1.2s ease forwards">
       <span class="hero-subtitle">Sodobno branje kart</span>
-      <h1 class="hero-title">Ko ne veš, kaj pomeni tišina,<br>obrni <em>eno karto</em></h1>
+      <h1 class="hero-title">Ko ne veš, kaj pomeni tišina,<br>obrni <em>karto in ugotovi sam</em></h1>
       <p class="hero-desc">Za trenutke, ko čakaš odgovor, te vleče v dve smeri ali čutiš, da nekaj ni več tako kot prej. Karta ne odloči namesto tebe, lahko pa pokaže, kje se nekaj že premika.</p>
       <a href="#branje" class="hero-cta">Obrni karto →</a>
-      <a href="#cenik" class="hero-cta hero-second">Izberi branje</a>
+      <a href="#cenik" class="hero-cta hero-second">Izberi branje iz kart</a>
       <span class="hero-note">Najprej mir, potem odgovor</span>
     </div>
   </div>
@@ -416,7 +416,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       <div class="intro-copy">
         <div class="intro-icon">◈</div>
         <h3>Tvoje</h3>
-        <p>Branje ne vzame odgovornosti iz tvojih rok. Samo osvetli nit, ki je bila morda že tam.</p>
+        <p>Branje iz kart ne odvzame odgovornosti iz tvojih rok. Samo osvetli nit, ki je bila morda že tam.</p>
       </div>
     </div>
   </div>
@@ -425,9 +425,9 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 <section id="branje">
   <div class="section-header fade-in">
     <span class="section-label">Prva karta</span>
-    <h2 class="section-title">Izberi področje, ki te trenutno najbolj vleče</h2>
+    <h2 class="section-title">Izberi področje, ki te trenutno najbolj zanima</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Ne rabiš pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali kje se ne moreš odločiti.</p>
+    <p class="section-desc">Ne treba pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali o čem se ne moreš odločiti.</p>
   </div>
   <div class="topic-row fade-in">
     <button class="topic active" data-topic="Splošno" onclick="setTopic(this)">Splošno</button>
@@ -455,7 +455,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <span class="section-label">Razpleti</span>
     <h2 class="section-title">Včasih ena karta ni dovolj</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Ko se ista misel vrača, ko odgovor ni enostaven ali ko želiš videti širšo sliko, lahko izbereš branje, ki gre globlje.</p>
+    <p class="section-desc">Ko se ista misel vrača, ko odgovor ni enostaven ali ko želiš videti širšo sliko, lahko izbereš branje iz kart, ki gre globlje.</p>
   </div>
   <div class="gallery">
     <div class="gallery-card fade-in" onclick="openReading(0)" role="button" tabindex="0"><div class="visual"></div><div class="gallery-content"><div class="gallery-num">01</div><h3>Karta dneva</h3><p>Ko potrebuješ samo en stavek, da se dan malo umiri.</p></div></div>
@@ -467,8 +467,8 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 
 <section id="cenik">
   <div class="section-header fade-in">
-    <span class="section-label">Branja</span>
-    <h2 class="section-title">En znak danes. Več jasnosti, ko jo potrebuješ</h2>
+    <span class="section-label">Branja iz kart</span>
+    <h2 class="section-title">En znak danes. Več jasnosti takrat, ko jo potrebuješ</h2>
     <div class="section-divider"></div>
     <p class="section-desc">Lahko ostaneš pri eni karti. Če se vprašanje ne zapre, lahko odpreš še več konteksta.</p>
   </div>
@@ -476,7 +476,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <div class="price-stack">
       <div class="pricing-card fade-in">
         <h3 class="pricing-name">Karta dneva</h3>
-        <p class="pricing-desc">Kratek odgovor za trenutek, ko ne želiš več vrteti iste misli.</p>
+        <p class="pricing-desc">Kratek odgovor za trenutek, ko ne želiš več premlevati ene in iste misli.</p>
         <div class="pricing-price">0 €</div>
         <a href="#branje" class="pricing-btn">Obrni</a>
       </div>
@@ -488,7 +488,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       </div>
       <div class="pricing-card fade-in">
         <h3 class="pricing-name">Veliki razplet</h3>
-        <p class="pricing-desc">Daljše branje za situacijo, ki je ne moreš ujeti z enim stavkom.</p>
+        <p class="pricing-desc">Daljše branje iz kart za situacijo, ki je ne moreš razrešiti z enim stavkom.</p>
         <div class="pricing-price">14,90 €</div>
         <a href="#racun" class="pricing-btn">Kupi</a>
       </div>
@@ -499,12 +499,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       <div class="pricing-price">9,90 € <span>/ mesec</span></div>
       <ul class="pricing-features">
         <li>Karta dneva, kadar jo potrebuješ</li>
-        <li>8 branj s tremi kartami mesečno</li>
+        <li>8 branj iz kart s tremi kartami mesečno</li>
         <li>1 veliki razplet mesečno</li>
-        <li>Shranjena branja na enem mestu</li>
+        <li>Na enem mestu shranjena branja</li>
         <li>Ljubezen, delo, denar in osebna rast</li>
       </ul>
-      <a href="#racun" class="pricing-btn">Vstopi v Krog</a>
+      <a href="#racun" class="pricing-btn">Vstopi v krog</a>
     </div>
   </div>
 </section>
@@ -514,7 +514,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <span class="section-label">Tvoj prostor</span>
     <h2 class="section-title">Nekateri odgovori se pokažejo šele kasneje</h2>
     <div class="section-divider"></div>
-    <p class="section-desc">Kar danes zveni nejasno, lahko čez nekaj dni dobi obliko. Zato se lahko vrneš k branjem, ki jih še nisi čisto odložila.</p>
+    <p class="section-desc">Kar danes zveni nejasno, lahko čez nekaj dni dobi obliko. Zato se lahko vrneš k branjem, ki jih še nisi čisto razložil.</p>
   </div>
   <div class="account-grid">
     <div class="account-panel fade-in">
@@ -528,7 +528,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       </ul>
     </div>
     <div class="account-panel fade-in">
-      <h3>Brez pritiska</h3>
+      <h3>Brez hitenja</h3>
       <p>Ničesar ti ni treba sprejeti, če v tebi ne zveni resnično.</p>
       <ul class="account-list">
         <li>Brez absolutnih napovedi</li>
@@ -554,7 +554,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <div class="footer-logo">Velvet Secret</div>
   <p class="footer-tagline">„Najprej mir, potem odgovor."</p>
   <ul class="footer-links">
-    <li><a href="#branje">Branje</a></li>
+    <li><a href="#branje">Branje iz kart</a></li>
     <li><a href="#cenik">Cenik</a></li>
     <li><a href="#racun">Račun</a></li>
     <li><a href="#">Pogoji</a></li>
@@ -567,7 +567,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <button class="close" onclick="closeUpsell()" aria-label="Zapri">×</button>
     <span class="section-label" id="upsellCardName"></span>
     <h3 style="font-family:var(--display);font-size:1.55rem;font-weight:500;color:#fff;margin:.6rem 0 .9rem;line-height:1.3">Karta je odprla vrata.<br>Kaj je za njimi?</h3>
-    <p style="color:var(--muted);font-size:.95rem;line-height:1.75;margin-bottom:1.8rem">Ena karta pokaže smer. Včasih pa vprašanje ne počaka — hoče vedeti, kaj je za tabo, kaj pritiska zdaj in kam te vleče. Za to so globlja branja.</p>
+    <p style="color:var(--muted);font-size:.95rem;line-height:1.75;margin-bottom:1.8rem">Ena karta pokaže smer. Včasih pa vprašanje ne čaka. Hoče vedeti, kaj je za tabo, kaj pritiska zdaj in kam te vleče. Za takšne situacije so na voljo globlja branja.</p>
     <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem">
       <a href="#cenik" class="pricing-btn" onclick="closeUpsell()" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none">
         <span>Tri karte <span style="font-weight:300;opacity:.7;font-size:.85rem">— preteklost, sedanjost, smer</span></span>
@@ -578,7 +578,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
         <span style="font-family:var(--display);color:var(--warm);white-space:nowrap;margin-left:1rem">14,90 €</span>
       </a>
       <a href="#cenik" class="pricing-btn" onclick="closeUpsell()" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;border-color:rgba(199,188,228,.4)">
-        <span>Krog <span style="font-weight:300;opacity:.7;font-size:.85rem">— mesečni prostor za vprašanja, ki zorijo</span></span>
+        <span>Krog <span style="font-weight:300;opacity:.7;font-size:.85rem">— mesečni prostor za vprašanja, ki vseskozi zorijo</span></span>
         <span style="font-family:var(--display);color:var(--warm);white-space:nowrap;margin-left:1rem">9,90 € / mes</span>
       </a>
     </div>
