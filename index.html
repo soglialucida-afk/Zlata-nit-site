@@ -202,7 +202,14 @@ img,svg{display:block;max-width:100%}
 .fade-in{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
 .fade-in.visible{opacity:1;transform:none}
 
-section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
+section:not(.hero){padding:6rem 2rem;max-width:1200px;margin:0 auto}
+section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.08)}
+.section-compact{padding-top:4rem!important;padding-bottom:4rem!important}
+.section-narrow{max-width:760px;text-align:center}
+.section-soft{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.018),rgba(199,188,228,.024));
+}
 .section-header{text-align:center;margin-bottom:4rem}
 .section-label{font-size:.74rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem;display:block;color:var(--violet-light)}
 .section-title{font-family:var(--display);font-size:clamp(2.2rem,4.2vw,3.35rem);font-weight:400;line-height:1.2;margin-bottom:1rem;color:#fff}
@@ -225,7 +232,7 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .intro-card h3{font-family:var(--display);font-size:1.35rem;font-weight:500;color:#fff;margin-bottom:.7rem}
 .intro-card p{font-size:.95rem;color:var(--muted);font-weight:300}
 
-#branje{background:var(--bg-soft);max-width:100%;padding:7rem 2rem}
+#branje{background:var(--bg-soft);max-width:100%;padding:6rem 2rem;border-top:1px solid rgba(199,188,228,.08);border-bottom:1px solid rgba(199,188,228,.08)}
 #branje .section-header,#cenik .section-header{max-width:1200px;margin:0 auto 4rem}
 /* steps */
 .steps{display:flex;align-items:center;justify-content:center;gap:0;margin:0 auto 3rem;max-width:480px}
@@ -358,7 +365,7 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .gallery-btn:hover{background:rgba(199,188,228,.12);border-color:rgba(199,188,228,.6)}
 .coming-soon{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);font-family:var(--sans)}
 
-#cenik{background:#15141d;max-width:100%;padding:7rem 2rem}
+#cenik{background:#15141d;max-width:100%;padding:6rem 2rem;border-top:1px solid rgba(199,188,228,.08);border-bottom:1px solid rgba(199,188,228,.08)}
 .pricing-container{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;align-items:stretch}
 .pricing-card{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2rem;text-align:left;transition:.35s;display:flex;flex-direction:column}
 .pricing-card:hover{transform:translateY(-4px);border-color:var(--line)}
@@ -436,6 +443,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .nav{padding:1rem 1.25rem}.nav.scrolled{padding:.8rem 1.25rem}
   .nav-logo{font-size:1.18rem}
   section:not(.hero),#branje,#cenik,#pristop{padding:4rem 1.25rem!important}
+  section.section-compact,#pristop.section-compact{padding-top:3rem!important;padding-bottom:3rem!important}
   .hero-title{font-size:clamp(2.2rem,10vw,3.4rem)}
   .hero-desc{font-size:.98rem}
   .hero-second{margin-left:0;margin-top:.65rem}
@@ -469,6 +477,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   .nav-logo{font-size:1rem}
   .hero-title{font-size:clamp(1.95rem,9vw,2.8rem)}
   section:not(.hero),#branje,#cenik,#pristop{padding:3rem 1rem!important}
+  section.section-compact,#pristop.section-compact{padding-top:2.5rem!important;padding-bottom:2.5rem!important}
 }
 @media(max-width:640px){
   .hero{align-items:flex-start;justify-content:center}
@@ -589,7 +598,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 </section>
 
-<section id="zgodba">
+<section id="zgodba" class="section-soft">
   <div class="section-header fade-in">
     <span class="section-label">Kako deluje</span>
     <h2 class="section-title">Tri preproste stopnice, ki vodijo od vprašanja do uvida.</h2>
@@ -623,7 +632,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 </section>
 
-<section style="padding:4rem 2rem;text-align:center;max-width:640px;margin:0 auto">
+<section class="section-compact" style="text-align:center;max-width:640px;margin:0 auto">
   <div class="fade-in">
     <p style="font-family:var(--display);font-size:1.45rem;color:#fff;margin-bottom:.8rem;font-weight:400">Prva karta je brezplačna.</p>
     <p style="color:var(--muted);font-size:.95rem;font-weight:300;margin-bottom:2rem;line-height:1.7">Brezplačna karta. Samo vprašanje in karta, ki ti odgovori.</p>
@@ -631,7 +640,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 </section>
 
-<section id="pristop" style="padding:5rem 2rem;max-width:760px;text-align:center">
+<section id="pristop" class="section-compact section-narrow" style="max-width:760px;text-align:center">
   <div class="section-header fade-in">
     <span class="section-label">Osnova</span>
     <h2 class="section-title">Zakaj karte delujejo?</h2>
@@ -647,7 +656,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 </section>
 
-<section>
+<section id="razpleti" class="section-soft">
   <div class="section-header fade-in">
     <span class="section-label">Razpleti</span>
     <h2 class="section-title">Od prve iskre do celotnega razpleta.</h2>
@@ -662,7 +671,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 </section>
 
-<section id="karta-cta" style="padding:5rem 2rem;max-width:760px;text-align:center">
+<section id="karta-cta" class="section-compact section-narrow" style="max-width:760px;text-align:center">
   <div class="section-header fade-in">
     <span class="section-label">Še nisi obrnil karte?</span>
     <h2 class="section-title">Ena karta brezplačno vsak dan.</h2>
@@ -736,7 +745,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 </section>
 
-<section id="primer" style="padding:5rem 2rem;max-width:760px;text-align:center">
+<section id="primer" class="section-compact section-narrow" style="max-width:760px;text-align:center">
   <div class="section-header fade-in">
     <span class="section-label">Primer branja</span>
     <h2 class="section-title">Kako je videti vpogled?</h2>
@@ -766,7 +775,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 </section>
 
-<section class="legal">
+<section class="legal section-compact section-soft">
   <div class="section-header fade-in">
     <span class="section-label">Pomembno</span>
     <h2 class="section-title">Zadnja beseda ostane tvoja.</h2>
