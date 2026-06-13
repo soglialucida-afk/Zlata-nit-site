@@ -207,9 +207,19 @@ section:not(.hero) + section:not(.hero){border-top:1px solid rgba(199,188,228,.0
 .section-compact{padding-top:4rem!important;padding-bottom:4rem!important}
 .section-narrow{max-width:760px;text-align:center}
 .section-soft{
+  max-width:100%!important;
   background:
     linear-gradient(180deg,rgba(255,255,255,.018),rgba(199,188,228,.024));
 }
+.section-soft > .section-header,
+.section-soft > .intro-grid,
+.section-soft > .gallery,
+.section-soft > .fade-in{
+  max-width:1200px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.legal.section-soft .section-header{max-width:780px}
 .section-header{text-align:center;margin-bottom:4rem}
 .section-label{font-size:.74rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:1rem;display:block;color:var(--violet-light)}
 .section-title{font-family:var(--display);font-size:clamp(2.2rem,4.2vw,3.35rem);font-weight:400;line-height:1.2;margin-bottom:1rem;color:#fff}
