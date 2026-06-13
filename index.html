@@ -1188,10 +1188,13 @@ async function signInWithGoogle(){
 
 async function signOut(){
   await _sb.auth.signOut();
-  localStorage.removeItem('vs_daily');
+  Object.keys(localStorage)
+    .filter(key => key.startsWith('vs_'))
+    .forEach(key => localStorage.removeItem(key));
+  sessionStorage.clear();
   updateNavUser(null);
   showToast('Odjavljena si.');
-  setTimeout(() => window.location.reload(), 1200);
+  setTimeout(() => window.location.replace(`${window.location.origin}${window.location.pathname}#vrh`), 1200);
 }
 function showToast(msg){
   const t = document.createElement('div');
