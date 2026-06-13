@@ -94,9 +94,10 @@ img,svg{display:block;max-width:100%}
   background:rgba(255,255,255,.04);
   padding:.64rem 1.25rem;
 }
+.nav-user-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:.2rem}
 .nav-user{display:flex;align-items:center;gap:.6rem;color:rgba(255,255,255,.82);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase}
 .nav-user img{width:28px;height:28px;border-radius:50%;border:1px solid var(--line)}
-.nav-signout{background:none;border:0;color:var(--muted);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:color .2s}
+.nav-signout{background:none;border:0;color:var(--muted);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:color .2s;text-align:right}
 .nav-signout:hover{color:var(--violet-light)}
 .hamb{display:none;background:none;border:0;width:42px;height:42px;flex-direction:column;gap:5px;align-items:center;justify-content:center}
 .hamb span{width:24px;height:1.5px;background:#fff;transition:.3s}
@@ -693,8 +694,13 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <button class="close" onclick="closeAuth()" aria-label="Zapri">×</button>
     <h3 id="authTitle">Tvoj prostor</h3>
     <p class="sub-t">Za branja, h katerim se želiš vrniti.</p>
-    <button class="pricing-btn" id="googleSignIn" style="width:100%;justify-content:center;display:flex;align-items:center;gap:.75rem;margin-top:1.5rem" onclick="signInWithGoogle()">
-      <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#fff" d="M44.5 20H24v8.5h11.7C34.2 33.1 29.6 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.1 7.9 3l6-6C34.4 6.1 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 19.7-8 19.7-20 0-1.3-.1-2.7-.2-4z"/></svg>
+    <button class="pricing-btn" id="googleSignIn" style="width:100%;justify-content:center;display:flex;align-items:center;gap:.9rem;margin-top:1.5rem;padding:1rem 1.5rem" onclick="signInWithGoogle()">
+      <svg width="24" height="24" viewBox="0 0 48 48" aria-hidden="true">
+        <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13 17.8 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.1 5.2-4.5 6.8l7.1 5.5c4.1-3.8 6.5-9.4 6.5-16.3z"/>
+        <path fill="#FBBC05" d="M10.5 28.7A14.7 14.7 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.6 2.7 10.8l7.8-6.1z"/>
+        <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.1-5.5c-2.2 1.5-5 2.3-8.8 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.8 6C6.6 42.6 14.6 48 24 48z"/>
+      </svg>
       Prijava z Google računom
     </button>
     <p class="fine" style="margin-top:1.2rem">Tvoja branja se shranijo v tvoj prostor in ostanejo dostopna ob naslednjem obisku.</p>
@@ -950,11 +956,11 @@ function updateNavUser(user){
   if(user){
     const name = user.user_metadata?.name || user.email.split('@')[0];
     const avatar = user.user_metadata?.avatar_url;
-    const chip = `<span class="nav-user">${avatar ? `<img src="${avatar}" alt="">` : ''}${name}</span><button class="nav-signout" onclick="signOut()">Odjava</button>`;
+    const chip = `<div class="nav-user-wrap"><span class="nav-user">${avatar ? `<img src="${avatar}" alt="">` : ''}${name}</span><button class="nav-signout" onclick="signOut()">Odjava</button></div>`;
     if(loginBtn) loginBtn.outerHTML = chip;
     if(mobileLoginBtn) mobileLoginBtn.style.display = 'none';
   } else {
-    const userEl = document.querySelector('.nav-user');
+    const userEl = document.querySelector('.nav-user-wrap');
     const signoutEl = document.querySelector('.nav-signout');
     if(userEl) userEl.outerHTML = `<button class="nav-login" onclick="openAuth()">Prijava</button>`;
     if(signoutEl) signoutEl.remove();
