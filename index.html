@@ -1180,6 +1180,15 @@ async function signInWithGoogle(){
 async function signOut(){
   await _sb.auth.signOut();
   updateNavUser(null);
+  showToast('Odjavljena si.');
+}
+function showToast(msg){
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:#181720;border:1px solid rgba(199,188,228,.3);color:rgba(255,255,255,.75);padding:.7rem 1.5rem;font-size:.82rem;letter-spacing:.08em;z-index:999;opacity:0;transition:opacity .3s';
+  document.body.appendChild(t);
+  requestAnimationFrame(() => t.style.opacity = '1');
+  setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 2500);
 }
 
 function updateNavUser(user){
