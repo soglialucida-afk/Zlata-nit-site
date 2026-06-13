@@ -1020,10 +1020,14 @@ async function showResult(card, topicLabel, intent){
 
   let mainText = card.text, reflectText = card.reflect;
   try {
+    const { data: { session: sSingle } } = await _sb.auth.getSession();
     const [res] = await Promise.all([
       fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(sSingle?.access_token ? { 'Authorization': `Bearer ${sSingle.access_token}` } : {})
+        },
         body: JSON.stringify({ card: { name: card.name, kind: card.kind }, topic: topicLabel, intent })
       }),
       new Promise(r => setTimeout(r, 2500))
@@ -1112,7 +1116,15 @@ function setTopic(btn){
   renderAmbientCards();
   document.getElementById('intent').focus();
 }
-function confirmIntent(){
+let pendingConfirm = false;
+async function confirmIntent(){
+  const { data: { session } } = await _sb.auth.getSession();
+  if(!session){
+    pendingConfirm = true;
+    openAuth();
+    return;
+  }
+  pendingConfirm = false;
   document.getElementById('intent-wrap').style.display = 'none';
   setStepDone(3);
   renderCards();
@@ -1180,6 +1192,7 @@ _sb.auth.getSession().then(({ data: { session } }) => {
 _sb.auth.onAuthStateChange((_event, session) => {
   updateNavUser(session?.user || null);
   closeAuth();
+  if(session && pendingConfirm) confirmIntent();
 });
 
 const readingDetails = [
@@ -1257,13 +1270,20 @@ async function showResult2(card, topicLabel){
   document.getElementById('result2').classList.add('show');
 
   try {
+    const { data: { session: s } } = await _sb.auth.getSession();
     const res = await fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        ...(s?.access_token ? { 'Authorization': `Bearer ${s.access_token}` } : {})
+      },
       body: JSON.stringify({ card: { name: card.name, kind: card.kind }, topic: topicLabel })
     });
     const data = await res.json();
-    if(data.text){
+    if(data.error === 'daily_limit'){
+      document.getElementById('r2Text').textContent = 'Za danes si že obrnil karto. Vrni se jutri.';
+      document.getElementById('r2Reflect').textContent = '';
+    } else if(data.text){
       const parts = data.text.split(/\n+/);
       const question = parts.findIndex(p => p.trim().endsWith('?'));
       if(question !== -1){
