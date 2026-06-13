@@ -258,6 +258,36 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .topic:hover,.topic.active{background:var(--violet-deep);border-color:var(--violet-deep);color:#fff}
 .cards{display:flex;justify-content:center;gap:clamp(14px,3.4vw,38px);min-height:300px;perspective:1400px}
 .card{width:clamp(120px,17vw,176px);aspect-ratio:5/8;position:relative;border:0;background:none;padding:0;transition:.35s}
+.card.is-dealing{pointer-events:none;animation:dealIn 1s cubic-bezier(.22,1,.36,1) both}
+.card.is-shuffling{pointer-events:none;animation:shuffleWig 1.8s ease-out both}
+.card.is-ready{animation:cardReady .6s ease-out both}
+.card:nth-child(1){--card-rot:-9deg;--shuf-dir:-1}
+.card:nth-child(2){--card-rot:4deg;--shuf-dir:1}
+.card:nth-child(3){--card-rot:-6deg;--shuf-dir:-1}
+@keyframes dealIn{
+  0%{opacity:0;transform:translateY(80px) rotate(var(--card-rot)) scale(.85)}
+  65%{opacity:1;transform:translateY(-10px) rotate(calc(var(--card-rot)*.25)) scale(1.03)}
+  82%{transform:translateY(5px) rotate(calc(var(--card-rot)*.08)) scale(.99)}
+  100%{opacity:1;transform:translateY(0) rotate(0) scale(1)}
+}
+@keyframes shuffleWig{
+  0%,100%{transform:translateY(0) rotate(0)}
+  8%{transform:translateX(calc(var(--shuf-dir)*-38px)) translateY(-22px) rotate(calc(var(--shuf-dir)*-9deg))}
+  18%{transform:translateX(calc(var(--shuf-dir)*30px)) translateY(-16px) rotate(calc(var(--shuf-dir)*7deg))}
+  30%{transform:translateX(calc(var(--shuf-dir)*-22px)) translateY(-12px) rotate(calc(var(--shuf-dir)*-5deg))}
+  42%{transform:translateX(calc(var(--shuf-dir)*16px)) translateY(-8px) rotate(calc(var(--shuf-dir)*4deg))}
+  55%{transform:translateX(calc(var(--shuf-dir)*-10px)) translateY(-5px) rotate(calc(var(--shuf-dir)*-3deg))}
+  67%{transform:translateX(calc(var(--shuf-dir)*6px)) translateY(-3px) rotate(calc(var(--shuf-dir)*2deg))}
+  78%{transform:translateX(calc(var(--shuf-dir)*-3px)) translateY(-1px) rotate(calc(var(--shuf-dir)*-1deg))}
+  90%{transform:translateX(calc(var(--shuf-dir)*1px)) rotate(calc(var(--shuf-dir)*.4deg))}
+}
+@keyframes cardReady{
+  0%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-6px) scale(1.025)}
+  100%{transform:translateY(0) scale(1)}
+}
+.shuffle-hint{text-align:center;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:1.4rem;opacity:0;transition:opacity .6s ease}
+.shuffle-hint.visible{opacity:1}
 .card:hover:not(.flipped):not(.dimmed){transform:translateY(-14px)}
 .card.dimmed{opacity:.24;pointer-events:none}
 .card-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1)}
@@ -484,6 +514,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   </div>
 
   <div class="cards fade-in" id="cards"></div>
+  <p class="shuffle-hint" id="shuffle-hint">Izberi svojo karto</p>
   <p class="daily-notice" id="daily-notice"></p>
 
   <div class="result" id="result">
@@ -1002,8 +1033,10 @@ function renderCards(){
   } else {
     currentSpread = shuffleDeck(tarotDeck).slice(0,3);
   }
+  const hint = document.getElementById('shuffle-hint');
+  hint.classList.remove('visible');
   document.getElementById('cards').innerHTML = currentSpread.map((card, index) => `
-    <button class="card" onclick="reveal(${index})" aria-label="Obrni karto ${index + 1} od ${tarotDeck.length}">
+    <button class="card is-dealing" style="animation-delay:${index*0.18}s" onclick="reveal(${index})" aria-label="Obrni karto ${index + 1} od ${tarotDeck.length}">
       <span class="card-inner">
         <span class="face face-back"></span>
         <span class="face face-front">
@@ -1015,6 +1048,21 @@ function renderCards(){
       </span>
     </button>
   `).join('');
+  if(daily) return;
+  setTimeout(() => {
+    document.querySelectorAll('.card.is-dealing').forEach(c => {
+      c.classList.remove('is-dealing');
+      c.classList.add('is-shuffling');
+      c.style.animationDelay = '0s';
+    });
+  }, 1100);
+  setTimeout(() => {
+    document.querySelectorAll('.card.is-shuffling').forEach(c => {
+      c.classList.remove('is-shuffling');
+      c.classList.add('is-ready');
+    });
+    hint.classList.add('visible');
+  }, 3000);
 }
 function setTopic(btn){
   document.querySelectorAll('.topic').forEach(b => b.classList.remove('active'));
