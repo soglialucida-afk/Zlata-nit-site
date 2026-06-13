@@ -1000,6 +1000,7 @@ async function showResult(card, topicLabel, intent){
   document.getElementById('rReflect').style.display = 'none';
   document.getElementById('rCta').style.display = 'none';
   document.getElementById('result').classList.add('show');
+  setTimeout(() => document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
 
   let mainText = card.text, reflectText = card.reflect;
   try {
