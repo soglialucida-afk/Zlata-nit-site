@@ -937,11 +937,14 @@ async function showResult(card, topicLabel, intent){
   document.getElementById('result').classList.add('show');
 
   try {
-    const res = await fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ card: { name: card.name, kind: card.kind }, topic: topicLabel, intent })
-    });
+    const [res] = await Promise.all([
+      fetch('https://pdibcrfpqenougebkbse.supabase.co/functions/v1/reading', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ card: { name: card.name, kind: card.kind }, topic: topicLabel, intent })
+      }),
+      new Promise(r => setTimeout(r, 2500))
+    ]);
     const data = await res.json();
     const raw = data.text || '';
     const parts = raw.split(/\n+/).filter(p => p.trim());
@@ -996,6 +999,7 @@ function setTopic(btn){
   document.querySelectorAll('.topic').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   topic = btn.dataset.topic;
+  setStepDone(2);
   if(loadDaily()) return;
   resetCards();
   renderCards();
