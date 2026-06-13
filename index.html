@@ -1074,7 +1074,7 @@ function applyDailyLock(){
     if(i !== 0){ card.classList.add('dimmed'); }
   });
   const notice = document.getElementById('daily-notice');
-  notice.textContent = 'Tvoja karta za danes je bila odprta. Vrni se jutri.';
+  notice.textContent = 'Brezplačna karta za danes je bila že uporabljena.';
   notice.style.display = 'block';
 }
 function renderCards(){
@@ -1292,7 +1292,7 @@ async function showResult2(card, topicLabel){
     });
     const data = await res.json();
     if(data.error === 'daily_limit'){
-      document.getElementById('r2Text').textContent = 'Za danes si že obrnil karto. Vrni se jutri.';
+      document.getElementById('r2Text').textContent = 'Brezplačna karta za danes je bila že uporabljena.';
       document.getElementById('r2Reflect').textContent = '';
     } else if(data.text){
       const parts = data.text.split(/\n+/);
@@ -1327,7 +1327,7 @@ async function revealSingle(){
   showResult2(card, 'Splošno');
   applyDailyLock();
   const n = document.getElementById('daily-notice2');
-  n.textContent = 'Tvoja karta za danes je bila odprta. Vrni se jutri.';
+  n.textContent = 'Brezplačna karta za danes je bila že uporabljena.';
   n.style.display = 'block';
 }
 function initSingleCard(){
@@ -1342,7 +1342,7 @@ function initSingleCard(){
   sc.classList.add('flipped');
   showResult2(daily.card, daily.topic);
   const n = document.getElementById('daily-notice2');
-  n.textContent = 'Tvoja karta za danes je bila odprta. Vrni se jutri.';
+  n.textContent = 'Brezplačna karta za danes je bila že uporabljena.';
   n.style.display = 'block';
 }
 
