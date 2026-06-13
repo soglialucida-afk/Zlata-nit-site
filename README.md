@@ -1,4 +1,4 @@
-# Zlata nit / Oracle site
+# Velvet Secret / Oracle site
 
 To je cist paket za nov projekt spletne strani za moderno vedezevanje.
 Paket je sestavljen samo iz relevantnih datotek od zacetka tega projekta naprej.
@@ -12,7 +12,7 @@ Odpri:
 ## Struktura
 
 ```text
-Zlata-nit-site/
+Velvet-Secret-site/
   index.html
   README.md
   assets/
@@ -28,8 +28,8 @@ Zlata-nit-site/
     image-prompts.md
   references/
     original-html/
-      zlata-nit-v2.html
-      zlata-nit.html
+      velvet-secret-v2.html
+      velvet-secret.html
     original-images/
       reference2.webp
       image-1.webp
@@ -50,4 +50,4 @@ Stran ima trenutno nastavljen hero poster:
 
 Ko bo pripravljen video, ga shrani v isto mapo kot `index.html` z imenom:
 
-`zlata-nit-hero-loop.mp4`
+`velvet-secret-hero-loop-v2.mp4`

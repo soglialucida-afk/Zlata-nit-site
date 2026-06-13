@@ -1,4 +1,4 @@
-# Zlata nit — smer za tekste
+# Velvet Secret — smer za tekste
 
 ## Problem trenutnega copyja
 
@@ -14,9 +14,9 @@ Uporabnik mora takoj zacutiti:
 
 ## Glavna copy smer
 
-Zlata nit ni "vedezevanje, ki napove prihodnost".
+Velvet Secret ni "vedezevanje, ki napove prihodnost".
 
-Zlata nit je simbolni prostor za trenutke, ko:
+Velvet Secret je simbolni prostor za trenutke, ko:
 
 - ne ves, ali naj ostanes ali gres;
 - se nekdo ne oglasi in ne ves, kaj to pomeni;
@@ -56,7 +56,7 @@ Ko ne ves, kaj pomeni tisina,
 obrni eno karto.
 
 Opis:
-Za trenutke, ko cakas odgovor, tehtas odlocitev ali cutis, da nekaj ni vec tako kot prej. Zlata nit ti ne pove, kaj moras storiti. Pomaga ti videti, kaj se v tebi ze premika.
+Za trenutke, ko cakas odgovor, tehtas odlocitev ali cutis, da nekaj ni vec tako kot prej. Velvet Secret ti ne pove, kaj moras storiti. Pomaga ti videti, kaj se v tebi ze premika.
 
 CTA:
 Obrni karto
@@ -70,7 +70,7 @@ Eyebrow: Ena karta. En mirnejsi pogled.
 
 Naslov:
 Ko te nekaj vlece v dve smeri,
-poisci zlato nit.
+poisci tihi namig.
 
 Opis:
 Ljubezen, delo, denar, odhod, cakanje, nov zacetek. Vprasanje je tvoje. Karta ga samo obrne tako, da lazje zaslisis, kaj ze ves.
@@ -90,7 +90,7 @@ Ni vedno odgovor.
 Vcasih je znak.
 
 Opis:
-Zlata nit je miren prostor za simbolno branje kart, ko potrebujes usmeritev, ne pritiska. Ena karta lahko odpre stavek, ki ga nisi znala izreci.
+Velvet Secret je miren prostor za simbolno branje kart, ko potrebujes usmeritev, ne pritiska. Ena karta lahko odpre stavek, ki ga nisi znala izreci.
 
 CTA:
 Poisci znak
@@ -158,4 +158,4 @@ Prva karta je namenjena prvemu obcutku. Ce zelis vec konteksta, lahko izberes tr
 
 ## Predlog varnostnega teksta
 
-Zlata nit je namenjena simbolnemu premisleku, razvedrilu in osebni refleksiji. Ne nadomesca strokovnega, zdravstvenega, psiholoskega, financnega ali pravnega svetovanja. Pri pomembnih odlocitvah ostane zadnja beseda vedno tvoja.
+Velvet Secret je namenjen simbolnemu premisleku, razvedrilu in osebni refleksiji. Ne nadomesca strokovnega, zdravstvenega, psiholoskega, financnega ali pravnega svetovanja. Pri pomembnih odlocitvah ostane zadnja beseda vedno tvoja.

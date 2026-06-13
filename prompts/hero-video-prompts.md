@@ -1,4 +1,4 @@
-# Zlata nit — Hero Video Prompt
+# Velvet Secret — Hero Video Prompt
 
 ## Seamless Loop Prompt
 

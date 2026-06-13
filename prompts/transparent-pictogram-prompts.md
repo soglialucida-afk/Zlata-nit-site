@@ -1,4 +1,4 @@
-# Zlata nit — transparent pictogram prompts
+# Velvet Secret — transparent pictogram prompts
 
 ## Stetje trenutnih simbolov na spletni strani
 

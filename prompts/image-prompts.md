@@ -1,4 +1,4 @@
-# Zlata nit — Image Generation Prompts
+# Velvet Secret — Image Generation Prompts
 
 Namen: slikovni material za temno premium spletno stran sodobnega vedeževanja. Stil mora biti blizu tvoji cvetličarski strani po občutku: velik vizualni prvi vtis, eleganca, zrak, editorial kompozicija, brez generičnega SaaS videza.
 
