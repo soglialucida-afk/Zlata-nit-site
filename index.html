@@ -451,7 +451,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 <nav class="nav" id="nav">
   <a href="#vrh" class="nav-logo">Velvet Secret</a>
   <ul class="nav-links">
-    <li><a href="#zgodba" class="nav-link">Občutek</a></li>
+    <li><a href="#branje" class="nav-link">Obrni karto</a></li>
     <li><a href="#branje" class="nav-link">Branje iz kart</a></li>
     <li><a href="#cenik" class="nav-link">Cenik</a></li>
     <li><button class="nav-login" onclick="openAuth()">Prijava</button></li>
@@ -459,9 +459,9 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <button class="hamb" id="hamb" aria-label="Odpri meni" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile" id="mobile">
-  <a href="#zgodba" class="mobile-link">Občutek</a>
-  <a href="#branje" class="mobile-link">Branje iz kart</a>
-  <a href="#cenik" class="mobile-link">Cenik</a>
+  <a href="#branje" class="mobile-link" onclick="toggleMenu(false)">Obrni karto</a>
+  <a href="#branje" class="mobile-link" onclick="toggleMenu(false)">Branje iz kart</a>
+  <a href="#cenik" class="mobile-link" onclick="toggleMenu(false)">Cenik</a>
   <button onclick="openAuth();toggleMenu(false)">Prijava</button>
 </div>
 
@@ -477,12 +477,10 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-title-block" style="opacity:0;transform:translateY(30px);animation:fadeSlideUp 1.2s ease forwards">
-      <span class="hero-subtitle">Sodobno branje kart</span>
-      <h1 class="hero-title">Ko ne veš, kaj pomeni tišina,<br>obrni <em>karto in ugotovi sam</em></h1>
-      <p class="hero-desc">Za trenutke, ko čakaš odgovor, te vleče v dve smeri ali čutiš, da nekaj ni več tako kot prej. Karta ne odloči namesto tebe, lahko pa pokaže, kje se nekaj že premika.</p>
+      <h1 class="hero-title">Ko odgovor<br>še nima <em>besed</em></h1>
+      <p class="hero-desc">Jungovski simboli, tarot karte in intuitivno branje za trenutke, ko čutiš, da se nekaj premika, pa še nimaš jasnega odgovora.</p>
       <a href="#branje" class="hero-cta">Obrni karto →</a>
-      <a href="#cenik" class="hero-cta hero-second">Izberi branje iz kart</a>
-      <span class="hero-note">Najprej nemir, potem odgovor</span>
+      <span class="hero-note">Najprej občutek. Potem pomen.</span>
     </div>
   </div>
   <div class="hero-scroll"><span>Pomakni navzdol</span><div class="hero-scroll-line"></div></div>
