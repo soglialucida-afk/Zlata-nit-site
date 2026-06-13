@@ -223,6 +223,27 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 
 #branje{background:var(--bg-soft);max-width:100%;padding:7rem 2rem}
 #branje .section-header,#cenik .section-header{max-width:1200px;margin:0 auto 4rem}
+/* steps */
+.steps{display:flex;align-items:center;justify-content:center;gap:0;margin:0 auto 3rem;max-width:480px}
+.step{display:flex;flex-direction:column;align-items:center;gap:.5rem;min-width:80px}
+.step-num{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.78rem;letter-spacing:.1em;color:var(--muted);transition:.4s}
+.step.active .step-num{border-color:var(--violet-light);color:var(--violet-light);background:rgba(199,188,228,.1)}
+.step.done .step-num{border-color:var(--violet-deep);background:var(--violet-deep);color:#fff}
+.step-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:center;transition:.4s}
+.step.active .step-label{color:var(--text)}
+.step-line{flex:1;height:1px;background:var(--line-soft);margin-bottom:1.2rem}
+
+/* crystal ball loading */
+.reading-loading{display:flex;flex-direction:column;align-items:center;padding:2rem 0 1.5rem;gap:1.2rem}
+.crystal-wrap{position:relative;width:80px;height:80px}
+.crystal-ball{width:80px;height:80px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(199,188,228,.35),rgba(127,108,175,.18) 50%,rgba(17,16,24,.6));border:1px solid rgba(199,188,228,.3);box-shadow:0 0 30px rgba(127,108,175,.25),inset 0 0 20px rgba(199,188,228,.1);position:relative;overflow:hidden;animation:crystalPulse 2.4s ease-in-out infinite}
+.crystal-glow{position:absolute;top:18%;left:22%;width:28%;height:22%;border-radius:50%;background:rgba(255,255,255,.22);filter:blur(4px)}
+.crystal-swirl{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,transparent 60%,rgba(199,188,228,.15) 80%,transparent 100%);animation:crystalSpin 3s linear infinite}
+@keyframes crystalPulse{0%,100%{box-shadow:0 0 20px rgba(127,108,175,.2),inset 0 0 20px rgba(199,188,228,.08)}50%{box-shadow:0 0 45px rgba(127,108,175,.4),inset 0 0 30px rgba(199,188,228,.18)}}
+@keyframes crystalSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.loading-text{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);animation:fadeOsc 2s ease-in-out infinite}
+@keyframes fadeOsc{0%,100%{opacity:.4}50%{opacity:1}}
+
 .intent-wrap{max-width:520px;margin:0 auto 3rem;position:relative}
 .intent-label{display:block;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem;text-align:center}
 .intent-input{width:100%;background:rgba(255,255,255,.035);border:1px solid var(--line-soft);color:var(--text);font-family:var(--sans);font-size:.97rem;font-weight:300;padding:1rem 1.25rem;outline:none;transition:.3s;resize:none;line-height:1.6}
@@ -425,14 +446,28 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 <section id="branje">
   <div class="section-header fade-in">
     <span class="section-label">Prva karta</span>
-    <h2 class="section-title">Izberi področje, ki te trenutno najbolj zanima</h2>
+    <h2 class="section-title">Tri koraki do odgovora</h2>
     <div class="section-divider"></div>
     <p class="section-desc">Ne treba pravilno oblikovati vprašanja. Dovolj je, da veš, kje boli, kje čakaš ali o čem se ne moreš odločiti.</p>
   </div>
-  <div class="intent-wrap fade-in">
-    <label class="intent-label" for="intent">Kaj želiš danes izvedeti?</label>
-    <textarea class="intent-input" id="intent" rows="2" placeholder="Neobvezno. En stavek ali beseda je dovolj."></textarea>
+
+  <div class="steps fade-in">
+    <div class="step">
+      <span class="step-num">1</span>
+      <span class="step-label">Izberi področje</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step" id="step2">
+      <span class="step-num">2</span>
+      <span class="step-label">Vpiši vprašanje</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step" id="step3">
+      <span class="step-num">3</span>
+      <span class="step-label">Obrni karto</span>
+    </div>
   </div>
+
   <div class="topic-row fade-in">
     <button class="topic active" data-topic="Splošno" onclick="setTopic(this)">Splošno</button>
     <button class="topic" data-topic="Ljubezen" onclick="setTopic(this)">Ljubezen</button>
@@ -440,14 +475,30 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <button class="topic" data-topic="Denar" onclick="setTopic(this)">Denar</button>
     <button class="topic" data-topic="Osebna rast" onclick="setTopic(this)">Osebna rast</button>
   </div>
+
+  <div class="intent-wrap fade-in">
+    <label class="intent-label" for="intent">Kaj želiš danes izvedeti?</label>
+    <textarea class="intent-input" id="intent" rows="2" placeholder="Neobvezno. En stavek ali beseda je dovolj."></textarea>
+  </div>
+
   <div class="cards fade-in" id="cards"></div>
   <p class="daily-notice" id="daily-notice"></p>
+
   <div class="result" id="result">
     <span class="section-label" id="rTopic"></span>
     <h3 id="rName"></h3>
-    <p id="rText"></p>
-    <div class="reflect" id="rReflect"></div>
-    <div class="result-cta">
+    <div class="reading-loading" id="rLoading">
+      <div class="crystal-wrap">
+        <div class="crystal-ball">
+          <div class="crystal-glow"></div>
+          <div class="crystal-swirl"></div>
+        </div>
+      </div>
+      <p class="loading-text">Odgovor se oblikuje...</p>
+    </div>
+    <p id="rText" style="display:none"></p>
+    <div class="reflect" id="rReflect" style="display:none"></div>
+    <div class="result-cta" id="rCta" style="display:none">
       <button class="pricing-btn" onclick="openUpsell()">Nadaljuj branje</button>
       <button class="pricing-btn" onclick="resetCards()">Zapri</button>
     </div>
@@ -866,11 +917,23 @@ function loadDaily(){
 function saveDaily(card, topicLabel){
   localStorage.setItem('vs_daily', JSON.stringify({ date: getDailyKey(), card, topic: topicLabel }));
 }
+function setStepDone(num){
+  for(let i=1;i<=3;i++){
+    const el = document.getElementById(`step${i}`) || document.querySelector(`.steps .step:nth-child(${i*2-1})`);
+    if(!el) continue;
+    if(i < num){ el.classList.add('done'); el.classList.remove('active'); }
+    else if(i === num){ el.classList.add('active'); el.classList.remove('done'); }
+    else { el.classList.remove('active','done'); }
+  }
+}
 async function showResult(card, topicLabel, intent){
+  setStepDone(3);
   document.getElementById('rTopic').textContent = `${topicLabel} · dnevni izid · ${card.kind}`;
   document.getElementById('rName').textContent = card.name;
-  document.getElementById('rText').textContent = '...';
-  document.getElementById('rReflect').textContent = '';
+  document.getElementById('rLoading').style.display = 'flex';
+  document.getElementById('rText').style.display = 'none';
+  document.getElementById('rReflect').style.display = 'none';
+  document.getElementById('rCta').style.display = 'none';
   document.getElementById('result').classList.add('show');
 
   try {
@@ -880,23 +943,24 @@ async function showResult(card, topicLabel, intent){
       body: JSON.stringify({ card: { name: card.name, kind: card.kind }, topic: topicLabel, intent })
     });
     const data = await res.json();
-    if(data.text){
-      const parts = data.text.split(/\n+/);
-      const question = parts.findIndex(p => p.trim().endsWith('?'));
-      if(question !== -1){
-        document.getElementById('rText').textContent = parts.filter((_,i) => i !== question).join(' ').trim();
-        document.getElementById('rReflect').textContent = parts[question].trim();
-      } else {
-        document.getElementById('rText').textContent = data.text;
-      }
+    const raw = data.text || '';
+    const parts = raw.split(/\n+/).filter(p => p.trim());
+    const qi = parts.findIndex(p => p.trim().endsWith('?'));
+    if(qi !== -1){
+      document.getElementById('rText').textContent = parts.filter((_,i)=>i!==qi).join(' ').trim();
+      document.getElementById('rReflect').textContent = parts[qi].trim();
     } else {
-      document.getElementById('rText').textContent = card.text;
+      document.getElementById('rText').textContent = raw || card.text;
       document.getElementById('rReflect').textContent = card.reflect;
     }
   } catch {
     document.getElementById('rText').textContent = card.text;
     document.getElementById('rReflect').textContent = card.reflect;
   }
+  document.getElementById('rLoading').style.display = 'none';
+  document.getElementById('rText').style.display = '';
+  document.getElementById('rReflect').style.display = '';
+  document.getElementById('rCta').style.display = '';
 }
 function applyDailyLock(){
   document.querySelectorAll('.card').forEach((card, i) => {
@@ -1131,6 +1195,8 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 initHeroVideoLoop();
 renderCards();
+setStepDone(1);
+document.getElementById('intent')?.addEventListener('input', () => { if(document.getElementById('intent').value.trim()) setStepDone(2); });
 initSingleCard();
 const _daily = loadDaily();
 if(_daily){
