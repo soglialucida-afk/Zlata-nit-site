@@ -565,6 +565,7 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
       </div>
       <p class="loading-text">Odgovor se oblikuje...</p>
     </div>
+    <p id="rIntent" class="reading-question" style="display:none"></p>
     <p id="rText" style="display:none"></p>
     <div class="reflect" id="rReflect" style="display:none"></div>
     <div class="result-cta" id="rCta" style="display:none">
@@ -1059,6 +1060,9 @@ async function showResult(card, topicLabel, intent){
     reflectText = card.reflect;
   }
   document.getElementById('rLoading').style.display = 'none';
+  const rIntent = document.getElementById('rIntent');
+  if(intent){ rIntent.textContent = `„${intent}"`; rIntent.style.display = ''; }
+  else { rIntent.style.display = 'none'; }
   document.getElementById('rText').style.display = '';
   document.getElementById('rReflect').style.display = '';
   document.getElementById('rCta').style.display = 'none';
@@ -1225,7 +1229,8 @@ _sb.auth.onAuthStateChange((_event, session) => {
       const intentEl = document.getElementById('intent');
       if(intentEl && pi) intentEl.value = pi;
       document.getElementById('branje')?.scrollIntoView({ behavior:'smooth' });
-      setTimeout(() => confirmIntent(), 300);
+      showToast('Prijava uspešna. Nadaljujemo z branjem.');
+      setTimeout(() => confirmIntent(), 1500);
     } else if(pendingConfirm){
       confirmIntent();
     }
