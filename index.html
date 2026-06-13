@@ -352,8 +352,7 @@ section:not(.hero){padding:7rem 2rem;max-width:1200px;margin:0 auto}
 .gallery-btn:hover{background:rgba(199,188,228,.12);border-color:rgba(199,188,228,.6)}
 
 #cenik{background:#15141d;max-width:100%;padding:7rem 2rem}
-.pricing-container{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:2rem;align-items:start}
-.price-stack{display:grid;gap:1rem}
+.pricing-container{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;align-items:start}
 .pricing-card{background:rgba(255,255,255,.035);border:1px solid var(--line-soft);padding:2rem;text-align:left;transition:.35s}
 .pricing-card:hover{transform:translateY(-4px);border-color:var(--line)}
 .pricing-name{font-family:var(--display);font-size:1.35rem;color:#fff;margin-bottom:.35rem}
@@ -403,8 +402,12 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
 .fine{font-size:.7rem;color:var(--muted);text-align:center;margin-top:1rem}
 
 @media(max-width:900px){
-  .intro-grid,.gallery,.pricing-container,.account-grid{grid-template-columns:1fr}
+  .intro-grid,.gallery,.account-grid{grid-template-columns:1fr}
+  .pricing-container{grid-template-columns:repeat(2,1fr)}
   .gallery-card{aspect-ratio:16/10}
+}
+@media(max-width:540px){
+  .pricing-container{grid-template-columns:1fr}
 }
 @media(max-width:760px){
   .nav-links{display:none}.hamb{display:flex}
@@ -668,38 +671,35 @@ footer{padding:4rem 2rem;text-align:center;border-top:1px solid var(--line-soft)
     <p class="section-desc">Lahko ostaneš pri eni karti. Če se vprašanje ne zapre, lahko odpreš še več konteksta.</p>
   </div>
   <div class="pricing-container">
-    <div class="price-stack">
-      <div class="pricing-card fade-in">
-        <h3 class="pricing-name">Karta dneva</h3>
-        <p class="pricing-desc">Kratek odgovor za trenutek, ko ne želiš več premlevati ene in iste misli.</p>
-        <div class="pricing-price">0 €</div>
-        <a href="#branje" class="pricing-btn">Obrni</a>
-      </div>
-      <div class="pricing-card fade-in">
-        <h3 class="pricing-name">Tri karte</h3>
-        <p class="pricing-desc">Tri plasti istega vprašanja: kaj je za tabo, kaj pritiska zdaj in kam te vleče.</p>
-        <div class="pricing-price">4,90 €</div>
-        <a href="#racun" class="pricing-btn">Kupi</a>
-      </div>
-      <div class="pricing-card fade-in">
-        <h3 class="pricing-name">Veliki razplet</h3>
-        <p class="pricing-desc">Daljše branje iz kart za situacijo, ki je ne moreš razrešiti z enim stavkom.</p>
-        <div class="pricing-price">14,90 €</div>
-        <a href="#racun" class="pricing-btn">Kupi</a>
-      </div>
+    <div class="pricing-card fade-in">
+      <h3 class="pricing-name">Iskra</h3>
+      <p class="pricing-desc">En simbol za trenutek, ko ne želiš več premlevati ene in iste misli.</p>
+      <div class="pricing-price">0 €</div>
+      <a href="#branje" class="pricing-btn">Naroči</a>
+    </div>
+    <div class="pricing-card fade-in">
+      <h3 class="pricing-name">Pot</h3>
+      <p class="pricing-desc">Tri plasti istega vprašanja: kaj je za tabo, kaj pritiska zdaj in kam te vleče.</p>
+      <div class="pricing-price">4,90 €</div>
+      <a href="#racun" class="pricing-btn">Naroči</a>
+    </div>
+    <div class="pricing-card fade-in">
+      <h3 class="pricing-name">Razplet</h3>
+      <p class="pricing-desc">Daljše branje za situacijo, ki je ne moreš razrešiti z enim stavkom.</p>
+      <div class="pricing-price">14,90 €</div>
+      <a href="#racun" class="pricing-btn">Naroči</a>
     </div>
     <div class="pricing-card featured fade-in">
-      <h3 class="pricing-name">Krog</h3>
+      <h3 class="pricing-name">Cikel</h3>
       <p class="pricing-desc">Mesečni prostor za vprašanja, ki se vračajo, spreminjajo in zorijo s tabo.</p>
       <div class="pricing-price">9,90 € <span>/ mesec</span></div>
       <ul class="pricing-features">
         <li>Karta dneva, kadar jo potrebuješ</li>
-        <li>8 branj iz kart s tremi kartami mesečno</li>
-        <li>1 veliki razplet mesečno</li>
-        <li>Na enem mestu shranjena branja</li>
-        <li>Ljubezen, delo, denar in osebna rast</li>
+        <li>8 branj s tremi kartami mesečno</li>
+        <li>1 razplet mesečno</li>
+        <li>Shranjena branja v računu</li>
       </ul>
-      <a href="#racun" class="pricing-btn">Vstopi v krog</a>
+      <a href="#racun" class="pricing-btn">Naroči</a>
     </div>
   </div>
 </section>
